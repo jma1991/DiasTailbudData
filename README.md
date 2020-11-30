@@ -26,5 +26,5 @@ The embryos were processed by André Dias accordingly:
 License
 -------
 
-DiasTailbudData is licensed under the [MIT](#) license.  
+This repository is licensed under the [MIT](#) license.  
 Copyright &copy; 2020, James Ashmore
