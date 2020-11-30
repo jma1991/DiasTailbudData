@@ -1,7 +1,7 @@
 *
 data
 data/**
-!analysis/README.md
+.DS_Store
 !config
 !config/**
 !resources
@@ -12,7 +12,6 @@ data/**
 !.gitattributes
 !.editorconfig
 !.travis.yml
-!.test
+!CODE_OF_CONDUCT.md
 !LICENSE
 !README.md
-.DS_Store
