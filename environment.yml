@@ -29,7 +29,6 @@ dependencies:
   - bioconductor-reactome.db
   - bioconductor-scater
   - bioconductor-scran
-  - bioconductor-scrnaseq
   - bioconductor-singlecellexperiment
   - bioconductor-singler
   - bioconductor-slingshot
@@ -43,8 +42,10 @@ dependencies:
   - r-gridextra
   - r-igraph
   - r-knitr
+  - r-magick
   - r-matrix
   - r-msigdbr
+  - r-pdftools
   - r-pheatmap
   - r-rmtstat
   - r-robustbase
@@ -52,4 +53,3 @@ dependencies:
   - r-statmod
   - r-uwot
   - r-viridis
-  - snakemake
