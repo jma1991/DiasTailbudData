@@ -1,10 +1,7 @@
 DiasTailbudData
 ===============
 
-This repository contains the analysis pipeline for the Mouse Tailbud Data.
-
-
-by André Dias and analysed by James Ashmore.
+This repository contains the analysis pipeline for the Dias Tailbud Data.
 
 Table of Contents
 -----------------
