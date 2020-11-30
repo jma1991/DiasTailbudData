@@ -8,17 +8,15 @@ Table of Contents
 
   * [Requirements](#requirements)
   * [Usage](#usage)
+  * [Methods](#methods)
+  * [Contributing](*contributing)
   * [License](#license)
-    
-Usage
------
 
+Requirements
+------------
 
-
-
-
-
-# Embryo collection
+Methods
+-------
 
 The embryos were processed by André Dias accordingly:
 
