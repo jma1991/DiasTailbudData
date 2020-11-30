@@ -107,20 +107,20 @@ rule FeatureSelection_aggregateReference:
     input:
         rds = "analysis/normalization/logNormCounts.rds"
     output:
-        rds = "analysis/normalization/aggregateReference.rds"
+        rds = "analysis/feature-selection/aggregateReference.rds"
     log:
-        out = "analysis/normalization/aggregateReference.out",
-        err = "analysis/normalization/aggregateReference.err"
+        out = "analysis/feature-selection/aggregateReference.out",
+        err = "analysis/feature-selection/aggregateReference.err"
     message:
         "[Feature selection] Aggregate reference samples"
     threads:
-        16
+        4
     script:
         "../scripts/feature-selection/aggregateReference.R"
 
 rule FeatureSelection_plotHeatmap:
     input:
-        rds = ["analysis/normalization/aggregateReference.rds", "analysis/feature-selection/{model}.HVG.rds"]
+        rds = ["analysis/feature-selection/aggregateReference.rds", "analysis/feature-selection/{model}.HVG.rds"]
     output:
         pdf = "analysis/feature-selection/plotHeatmap.{model}.HVG.pdf"
     log:

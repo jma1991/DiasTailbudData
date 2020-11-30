@@ -121,7 +121,7 @@ rule ReducedDims_parallelTSNE:
         out = "analysis/reduced-dimensions/parallelTSNE.out",
         err = "analysis/reduced-dimensions/parallelTSNE.err"
     threads:
-        16
+        4
     message:
         "[Dimensionality reduction] Perform parallel TSNE on PCA matrix"
     script:
@@ -168,7 +168,7 @@ rule ReducedDims_parallelUMAP:
         out = "analysis/reduced-dimensions/parallelUMAP.out",
         err = "analysis/reduced-dimensions/parallelUMAP.err"
     threads:
-        16
+        4
     message:
         "[Dimensionality reduction] Perform parallel UMAP on PCA matrix"
     script:

@@ -48,9 +48,9 @@ rule all:
         "analysis/feature-selection/modelGeneVar.HVG.rds",
         "analysis/feature-selection/modelGeneCV2.HVG.rds",
         "analysis/feature-selection/modelGeneVarByPoisson.HVG.rds",
-        "analysis/feature-selection/plotHeatmap.modelGeneVar.HVG.pdf",
-        "analysis/feature-selection/plotHeatmap.modelGeneCV2.HVG.pdf",
-        "analysis/feature-selection/plotHeatmap.modelGeneVarByPoisson.HVG.pdf",
+        #"analysis/feature-selection/plotHeatmap.modelGeneVar.HVG.pdf",
+        #"analysis/feature-selection/plotHeatmap.modelGeneCV2.HVG.pdf",
+        #"analysis/feature-selection/plotHeatmap.modelGeneVarByPoisson.HVG.pdf",
         "analysis/feature-selection/calculatePCA.modelGeneVar.HVG.rds",
         "analysis/feature-selection/calculatePCA.modelGeneCV2.HVG.rds",
         "analysis/feature-selection/calculatePCA.modelGeneVarByPoisson.HVG.rds",
@@ -134,6 +134,9 @@ rule all:
         "analysis/marker-detection/plotTTestsTSNE.any.0.all",
         "analysis/marker-detection/plotTTestsUMAP.any.0.all",
         # # Cell type annotation
+        "analysis/cell-annotation/buildRankings.rds",
+        "analysis/cell-annotation/calcAUC.rds",
+        "analysis/cell-annotation/addCelltype.rds",
         # # Trajectory analysis
         "analysis/trajectory/perCellEntropy.rds",
         "analysis/trajectory/plotEntropy.pdf",

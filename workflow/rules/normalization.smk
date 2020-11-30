@@ -14,7 +14,7 @@ rule librarySizeFactors:
     message:
         "[Normalization] Compute library size factors"
     threads:
-        16
+        4
     script:
         "../scripts/normalization/librarySizeFactors.R"
 
@@ -29,7 +29,7 @@ rule calculateSumFactors:
     message:
         "[Normalization] Normalization by deconvolution"
     threads:
-        16
+        4
     script:
         "../scripts/normalization/calculateSumFactors.R"
 
@@ -46,7 +46,7 @@ rule logNormCounts:
     message:
         "[Normalization] Compute log-normalized expression values (downsample = {params.downsample})"
     threads:
-        16
+        4
     script:
         "../scripts/normalization/logNormCounts.R"
 

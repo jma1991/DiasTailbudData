@@ -18,7 +18,7 @@ main <- function(input, output, params, log) {
 
     dat <- readRDS(input$rds)
 
-    sub <- paste("subsets", params$subsets, "percent", sep = "")
+    sub <- paste("subsets", params$subsets, "percent", sep = "_")
 
     out <- quickPerCellQC(dat, sub.fields = sub, nmads = params$nmads)
 

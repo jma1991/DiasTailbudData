@@ -45,7 +45,7 @@ rule emptyDropsF:
     message:
         "[Droplet processing] Identify empty droplets (test.ambient = FALSE)"
     threads:
-        16
+        4
     script:
         "../scripts/droplet-processing/emptyDrops.R"
 
@@ -63,7 +63,7 @@ rule emptyDropsT:
     message:
         "[Droplet processing] Identify empty droplets (test.ambient = TRUE)"
     threads:
-        16
+        4
     script:
         "../scripts/droplet-processing/emptyDrops.ambient.R"
 

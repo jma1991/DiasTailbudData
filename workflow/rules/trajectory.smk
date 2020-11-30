@@ -66,7 +66,7 @@ rule scvelo:
     message:
         "[Trajectory analysis] RNA velocity with scVelo"
     threads:
-        16
+        4
     script:
         "../scripts/trajectory/scvelo.R"
 

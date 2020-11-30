@@ -14,7 +14,7 @@ rule aggregateReference:
     message:
         "[Marker detection] Aggregate reference samples"
     threads:
-        16
+        4
     script:
         "../scripts/marker-detection/aggregateReference.R"
 
@@ -29,7 +29,7 @@ rule pairwiseTTests:
     message:
         "[Marker detection] Perform pairwise t-tests (direction = '{wildcards.direction}', lfc = {wildcards.lfc})"
     threads:
-        16
+        4
     script:
         "../scripts/marker-detection/pairwiseTTests.R"
 
@@ -44,7 +44,7 @@ rule combineTTests:
     message:
         "[Marker detection] Combine pairwise t-tests (direction = '{wildcards.direction}', lfc = {wildcards.lfc}, pval.type = '{wildcards.type}')"
     threads:
-        16
+        4
     script:
         "../scripts/marker-detection/combineTTests.R"
 
@@ -138,7 +138,7 @@ rule pairwiseWilcox:
     message:
         "[Marker detection] Perform pairwise Wilcoxon rank sum tests (direction = '{wildcards.direction}', lfc = {wildcards.lfc})"
     threads:
-        16
+        4
     script:
         "../scripts/marker-detection/pairwiseWilcox.R"
 
@@ -153,7 +153,7 @@ rule combineWilcox:
     message:
         "[Marker detection] Combine pairwise Wilcoxon rank sum tests (direction = '{wildcards.direction}', lfc = {wildcards.lfc}, pval.type = '{wildcards.type}')"
     threads:
-        16
+        4
     script:
         "../scripts/marker-detection/combineWilcox.R"
 
@@ -225,7 +225,7 @@ rule pairwiseBinom:
     message:
         "[Marker detection] Perform pairwise binomial tests (direction = '{wildcards.direction}', lfc = {wildcards.lfc})"
     threads:
-        16
+        4
     script:
         "../scripts/marker-detection/pairwiseBinom.R"
 
@@ -240,7 +240,7 @@ rule combineBinom:
     message:
         "[Marker detection] Combine pairwise binomial tests (direction = '{wildcards.direction}', lfc = {wildcards.lfc}, pval.type = '{wildcards.type}')"
     threads:
-        16
+        4
     script:
         "../scripts/marker-detection/combineBinom.R"
 

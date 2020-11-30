@@ -32,7 +32,7 @@ rule cyclone:
     message:
         "[Cell cycle assignment] Cell cycle phase classification"
     threads:
-        16
+        4
     script:
         "../scripts/cell-cycle/cyclone.R"
 

@@ -14,7 +14,7 @@ rule classifySingleR:
     message:
         "[Cell type annotation] Classify cells with SingleR"
     threads:
-        16
+        4
     script:
         "../scripts/cell-annotation/classifySingleR.R"
 
@@ -57,3 +57,16 @@ rule calcAUC:
         "[Cell type annotation] Calculate AUC"
     script:
         "../scripts/cell-annotation/calcAUC.R"
+
+rule addCelltype:
+    input:
+        rds = ["analysis/cell-cycle/addPerCellPhase.rds", "analysis/cell-annotation/calcAUC.rds"]
+    output:
+        rds = "analysis/cell-annotation/addCelltype.rds"
+    log:
+        out = "analysis/cell-annotation/addCelltype.out",
+        err = "analysis/cell-annotation/addCelltype.err"
+    message:
+        "[Cell type annotation] Add celltype annotation"
+    script:
+        "../scripts/cell-annotation/addCelltype.R"
