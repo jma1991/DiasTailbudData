@@ -1,5 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 6 of /Users/james/Documents/GitHub/orchestra/workflow/Snakefile:
-Missing input files for rule all:
-analysis/01-droplet-processing/barcodeRanks.rds
-analysis/01-droplet-processing/barcodeRanksPlot.pdf

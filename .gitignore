@@ -1,13 +1,13 @@
 *
 analysis
-analysis/*
+analysis/**
 data
-data/*
+data/**
 !analysis/README.md
 !config
-!config/*
+!config/**
 !resources
-!resources/*
+!resources/**
 !workflow
 !workflow/**
 !.gitignore
