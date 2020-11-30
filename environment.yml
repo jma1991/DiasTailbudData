@@ -16,35 +16,35 @@ dependencies:
   - bioconductor-delayedmatrixstats
   - bioconductor-dropletutils
   - bioconductor-edger
-  - bioconductor-ensdb.hsapiens.v86
   - bioconductor-go.db
   - bioconductor-gseabase
-  - bioconductor-hcadata
   - bioconductor-isee
   - bioconductor-limma
-  - bioconductor-mousegastrulationdata
-  - bioconductor-org.hs.eg.db
   - bioconductor-org.mm.eg.db
   - bioconductor-pcatools
   - bioconductor-reactome.db
   - bioconductor-scater
+  - bioconductor-scdblfinder
   - bioconductor-scran
   - bioconductor-singlecellexperiment
   - bioconductor-singler
   - bioconductor-slingshot
-  - bioconductor-tenxbraindata
-  - bioconductor-tenxpbmcdata
   - bioconductor-tradeseq
+  - bioconductor-tscan
+  - bioconductor-velociraptor
   - r-cluster
   - r-dendextend
   - r-dynamictreecut
   - r-ggbeeswarm
+  - r-ggforce
   - r-gridextra
+  - r-gtools
   - r-igraph
   - r-knitr
   - r-magick
   - r-matrix
   - r-msigdbr
+  - r-patchwork
   - r-pdftools
   - r-pheatmap
   - r-rmtstat
