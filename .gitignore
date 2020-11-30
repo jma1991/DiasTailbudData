@@ -1,5 +1,4 @@
 *
-analysis/**/*.rds
 data
 data/**
 !analysis/README.md
