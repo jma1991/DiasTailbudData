@@ -1,4 +1,5 @@
-# DiasTailbudData
+DiasTailbudData
+===============
 
 This repository contains the analysis pipeline for the mouse tailbud data.
 
