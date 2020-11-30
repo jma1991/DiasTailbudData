@@ -3,6 +3,21 @@
 # Email: jashmore@ed.ac.uk
 # License: MIT
 
+rule aggregateReference:
+    input:
+        rds = "analysis/cell-cycle/addPerCellPhase.rds"
+    output:
+        rds = "analysis/marker-detection/aggregateReference.rds"
+    log:
+        out = "analysis/marker-detection/aggregateReference.out",
+        err = "analysis/marker-detection/aggregateReference.err"
+    message:
+        "[Marker detection] Aggregate reference samples"
+    threads:
+        16
+    script:
+        "../scripts/marker-detection/aggregateReference.R"
+
 rule pairwiseTTests:
     input:
         rds = "analysis/cell-cycle/addPerCellPhase.rds"
