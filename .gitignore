@@ -1,9 +1,13 @@
 *
 data
-data/**
+data/*
 .DS_Store
+!analysis
+!analysis/**/*.pdf
+!analysis/**/*.out
+!analysis/**/*.err
 !config
-!config/**
+!config/*
 !resources
 !resources/**
 !workflow
