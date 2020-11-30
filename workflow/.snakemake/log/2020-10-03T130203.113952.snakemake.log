@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 6 of /Users/james/Documents/GitHub/orchestra/workflow/rules/01-droplet-processing.smk:
+Missing input files for rule barcodeRanks:
+analysis/01-droplet-processing/SingleCellExperiment.rds

@@ -1,0 +1,3 @@
+WorkflowError in line 6 of /Users/james/Documents/GitHub/orchestra/workflow/Snakefile:
+Config file config/config.yaml not found.
+  File "/Users/james/Documents/GitHub/orchestra/workflow/Snakefile", line 6, in <module>

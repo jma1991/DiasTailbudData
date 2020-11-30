@@ -1,0 +1,6 @@
+Migrating .snakemake folder to new format...
+Migration complete
+Building DAG of jobs...
+MissingInputException in line 6 of /Users/james/Documents/GitHub/orchestra/workflow/rules/droplet-processing.smk:
+Missing input files for rule barcodeRanks:
+analysis/droplet-processing/SingleCellExperiment.rds
