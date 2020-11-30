@@ -1,7 +1,9 @@
 *
 .DS_Store
-!analysis
-!analysis/**
+analysis
+analysis/**
+data/
+data/*
 !config
 !config/*
 !resources
