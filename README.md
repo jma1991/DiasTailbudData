@@ -3,6 +3,13 @@ DiasTailbudData
 
 This repository contains the analysis pipeline for the mouse tailbud data.
 
+Table of Contents
+-----------------
+
+  * [Requirements](#requirements)
+  * [Usage](#usage)
+  * [License](#license)
+
 # Embryo collection
 
 The embryos were processed by André Dias accordingly:
@@ -15,3 +22,9 @@ The embryos were processed by André Dias accordingly:
 * Around 11,000 cells were loaded into the machine (based on the current 10x protocol)
 * The cells were counted using a haemocytometer and displayed a nice colour/shape
 * The sequencing libraries were prepared using the Chromium Next GEM Single Cell 3' Reagent Kits v3.1 protocol
+
+License
+-------
+
+DiasTailbudData is licensed under the [MIT](#) license.  
+Copyright &copy; 2020, James Ashmore
