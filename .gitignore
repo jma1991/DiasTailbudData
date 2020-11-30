@@ -17,3 +17,4 @@ data/**
 !.test
 !LICENSE
 !README.md
+.DS_Store
