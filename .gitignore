@@ -9,7 +9,8 @@ data/*
 !config
 !config/*
 !resources
-!resources/**
+!resources/subsets
+!resources/subsets/*
 !workflow
 !workflow/**
 !.gitignore
