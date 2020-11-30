@@ -31,6 +31,12 @@ The embryos were processed by André Dias accordingly:
 * The cells were counted using a haemocytometer and displayed a nice colour/shape
 * The sequencing libraries were prepared using the Chromium Next GEM Single Cell 3' Reagent Kits v3.1 protocol
 
+
+Contributing
+------------
+
+If you have a question or have spotted a mistake please open an issue or submit a pull request. Please remember to abide by the  
+
 Authors
 ------
 
