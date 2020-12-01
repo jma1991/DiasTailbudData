@@ -24,6 +24,8 @@ main <- function(input, output, log) {
 
     sig <- Filter(nrow, sig)
 
+    lab <- lapply(sig, "[[", "Symbol")
+
     lfc <- lapply(sig, getMarkerEffects, prefix = "logFC")
 
     row <- sapply(lfc, nrow) > 1
@@ -36,7 +38,7 @@ main <- function(input, output, log) {
 
     brk <- seq(-5, 5, length.out = 101)
 
-    plt <- mapply(pheatmap, mat = lfc, cluster_rows = row, filename = ids, MoreArgs = list(color = col, breaks = brk, width = 8, height = 6))
+    plt <- mapply(pheatmap, mat = lfc, cluster_rows = row, labels_row = lab, filename = ids, MoreArgs = list(color = col, breaks = brk, width = 8, height = 6))
 
     # Image function
 

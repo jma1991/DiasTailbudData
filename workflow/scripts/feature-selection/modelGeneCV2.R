@@ -1,7 +1,5 @@
 #!/usr/bin/env Rscript
 
-set.seed(1701)
-
 main <- function(input, output, log, threads) {
 
     # Log function
@@ -25,6 +23,10 @@ main <- function(input, output, log, threads) {
     par <- MulticoreParam(workers = threads)
 
     dec <- modelGeneCV2(sce, BPPARAM = par)
+
+    dec <- cbind(id = rowData(sce)$ID, name = rowData(sce)$Symbol, dec)
+
+    rownames(dec) <- rownames(sce)
 
     saveRDS(dec, file = output$rds)
 

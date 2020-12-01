@@ -20,6 +20,8 @@ main <- function(input, output, params, log) {
 
     library(scales)
 
+    library(scran)
+
     dec <- readRDS(input$rds[1])
 
     hvg <- readRDS(input$rds[2])
@@ -36,17 +38,17 @@ main <- function(input, output, params, log) {
         "FALSE" = "#BAB0AC"
     )
 
-    dec$name <- ""
+    dec$symbol <- ""
 
     ind <- which(dec$bio >= sort(dec$bio, decreasing = TRUE)[params$n], arr.ind = TRUE)
 
-    dec$name[ind] <- rownames(dec)[ind]
+    dec$symbol[ind] <- dec$name[ind]
 
     plt <- ggplot(as.data.frame(dec)) + 
         geom_point(aes(x = mean, y = total, colour = variable)) + 
         geom_line(aes(x = mean, y = tech), colour = "#E15759") + 
         scale_colour_manual(values = col, labels = lab) + 
-        geom_text_repel(aes(x = mean, y = total, label = name), colour = "#000000", size = 1) + 
+        geom_text_repel(aes(x = mean, y = total, label = symbol), colour = "#000000", size = 1) +
         labs(x = "Mean", y = "Total") + 
         theme_bw() + 
         theme(legend.title = element_blank(), legend.position = "top")

@@ -26,6 +26,10 @@ main <- function(input, output, log, threads) {
 
     dec <- modelGeneVar(sce, BPPARAM = par)
 
+    dec <- cbind(id = rowData(sce)$ID, name = rowData(sce)$Symbol, dec)
+
+    rownames(dec) <- rownames(sce)
+
     saveRDS(dec, file = output$rds)
 
 }

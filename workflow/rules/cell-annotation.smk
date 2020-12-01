@@ -58,6 +58,19 @@ rule calcAUC:
     script:
         "../scripts/cell-annotation/calcAUC.R"
 
+rule exploreThresholds:
+    input:
+        rds = "analysis/cell-annotation/calcAUC.rds"
+    output:
+        pdf = "analysis/cell-annotation/exploreThresholds.pdf"
+    log:
+        out = "analysis/cell-annotation/exploreThresholds.out",
+        err = "analysis/cell-annotation/exploreThresholds.err"
+    message:
+        "[Cell type annotation] Plot AUC histograms"
+    script:
+        "../scripts/cell-annotation/exploreThresholds.R"
+
 rule addCelltype:
     input:
         rds = ["analysis/cell-cycle/addPerCellPhase.rds", "analysis/cell-annotation/calcAUC.rds"]

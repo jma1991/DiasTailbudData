@@ -29,6 +29,10 @@ main <- function(input, output, log, threads, wildcards) {
         BPPARAM = MulticoreParam(workers = threads)
     )
 
+    ids <- lapply(res, function(x) dat$gene.names[rownames(x)])
+
+    res <- Map(cbind, Symbol = ids, res)
+
     saveRDS(res, file = output$rds)
 
 }
