@@ -28,7 +28,9 @@ main <- function(input, output, log, threads, wildcards) {
         BPPARAM = MulticoreParam(workers = threads)
     )
 
-    saveRDS(res, output$rds)
+    res$gene.names <- setNames(rowData(sce)$Symbol, rowData(sce)$ID)
+
+    saveRDS(res, file = output$rds)
 
 }
 

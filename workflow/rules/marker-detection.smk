@@ -77,6 +77,21 @@ rule writeTTests:
     script:
         "../scripts/marker-detection/writeTTests.R"
 
+rule heatmapTTests:
+    input:
+        rds = ["analysis/cell-cycle/addPerCellPhase.rds", "analysis/marker-detection/combineTTests.{direction}.{lfc}.{type}.rds"]
+    output:
+        pdf = "analysis/marker-detection/heatmapTTests.{direction}.{lfc}.{type}.pdf"
+    params:
+        size = 100
+    log:
+        out = "analysis/marker-detection/heatmapTTests.{direction}.{lfc}.{type}.out",
+        err = "analysis/marker-detection/heatmapTTests.{direction}.{lfc}.{type}.err"
+    message:
+        "[Marker detection] Plot expression of marker genes from t-test"
+    script:
+        "../scripts/marker-detection/heatmapTTests.R"
+
 rule plotTTestsEffects:
     input:
         rds = "analysis/marker-detection/combineTTests.{direction}.{lfc}.{type}.rds"
@@ -89,43 +104,6 @@ rule plotTTestsEffects:
         "[Marker detection] Plot pairwise t-tests effect sizes (direction = '{wildcards.direction}', lfc = {wildcards.lfc}, pval.type = '{wildcards.type}')"
     script:
         "../scripts/marker-detection/plotTTestsEffects.R"
-
-rule plotTTestsTSNE:
-    input:
-        rds = ["analysis/cell-cycle/addPerCellPhase.rds", "analysis/marker-detection/combineTTests.{direction}.{lfc}.{type}.rds"]
-    output:
-        dir = directory("analysis/marker-detection/plotTTestsTSNE.{direction}.{lfc}.{type}")
-    log:
-        out = "analysis/marker-detection/plotTTestsTSNE.{direction}.{lfc}.{type}.out",
-        err = "analysis/marker-detection/plotTTestsTSNE.{direction}.{lfc}.{type}.err"
-    script:
-        "../scripts/marker-detection/plotTTestsTSNE.R"
-
-rule plotTTestsUMAP:
-    input:
-        rds = ["analysis/cell-cycle/addPerCellPhase.rds", "analysis/marker-detection/combineTTests.{direction}.{lfc}.{type}.rds"]
-    output:
-        dir = directory("analysis/marker-detection/plotTTestsUMAP.{direction}.{lfc}.{type}")
-    log:
-        out = "analysis/marker-detection/plotTTestsUMAP.{direction}.{lfc}.{type}.out",
-        err = "analysis/marker-detection/plotTTestsUMAP.{direction}.{lfc}.{type}.err"
-    script:
-        "../scripts/marker-detection/plotTTestsUMAP.R"
-
-rule heatmapTTests:
-    input:
-        rds = ["analysis/cell-cycle/addPerCellPhase.rds", "analysis/marker-detection/combineTTests.{direction}.{lfc}.{type}.rds"]
-    output:
-        pdf = "analysis/marker-detection/heatmapTTests.{direction}.{lfc}.{type}.pdf"
-    params:
-        size = 1000
-    log:
-        out = "analysis/marker-detection/heatmapTTests.{direction}.{lfc}.{type}.out",
-        err = "analysis/marker-detection/heatmapTTests.{direction}.{lfc}.{type}.err"
-    message:
-        "[Marker detection] Plot expression of marker genes from t-test"
-    script:
-        "../scripts/marker-detection/heatmapTTests.R"
 
 rule pairwiseWilcox:
     input:
@@ -186,6 +164,21 @@ rule writeWilcox:
     script:
         "../scripts/marker-detection/writeWilcox.R"
 
+rule heatmapWilcox:
+    input:
+        rds = ["analysis/cell-cycle/addPerCellPhase.rds", "analysis/marker-detection/combineWilcox.{direction}.{lfc}.{type}.rds"]
+    output:
+        pdf = "analysis/marker-detection/heatmapWilcox.{direction}.{lfc}.{type}.pdf"
+    params:
+        size = 100
+    log:
+        out = "analysis/marker-detection/heatmapWilcox.{direction}.{lfc}.{type}.out",
+        err = "analysis/marker-detection/heatmapWilcox.{direction}.{lfc}.{type}.err"
+    message:
+        "[Marker detection] Plot expression of marker genes from Wilcoxon rank sum test"
+    script:
+        "../scripts/marker-detection/heatmapWilcox.R"
+
 rule plotWilcoxEffects:
     input:
         rds = "analysis/marker-detection/combineWilcox.{direction}.{lfc}.{type}.rds"
@@ -198,21 +191,6 @@ rule plotWilcoxEffects:
         "[Marker detection] Plot pairwise Wilcoxon effect sizes (direction = '{wildcards.direction}', lfc = {wildcards.lfc}, pval.type = '{wildcards.type}')"
     script:
         "../scripts/marker-detection/plotWilcoxEffects.R"
-
-rule heatmapWilcox:
-    input:
-        rds = ["analysis/cell-cycle/addPerCellPhase.rds", "analysis/marker-detection/combineWilcox.{direction}.{lfc}.{type}.rds"]
-    output:
-        pdf = "analysis/marker-detection/heatmapWilcox.{direction}.{lfc}.{type}.pdf"
-    params:
-        size = 1000
-    log:
-        out = "analysis/marker-detection/heatmapWilcox.{direction}.{lfc}.{type}.out",
-        err = "analysis/marker-detection/heatmapWilcox.{direction}.{lfc}.{type}.err"
-    message:
-        "[Marker detection] Plot expression of marker genes from Wilcoxon rank sum test"
-    script:
-        "../scripts/marker-detection/heatmapWilcox.R"
 
 rule pairwiseBinom:
     input:
@@ -273,6 +251,21 @@ rule writeBinom:
     script:
         "../scripts/marker-detection/writeBinom.R"
 
+rule heatmapBinom:
+    input:
+        rds = ["analysis/cell-cycle/addPerCellPhase.rds", "analysis/marker-detection/combineBinom.{direction}.{lfc}.{type}.rds"]
+    output:
+        pdf = "analysis/marker-detection/heatmapBinom.{direction}.{lfc}.{type}.pdf"
+    params:
+        size = 100
+    log:
+        out = "analysis/marker-detection/heatmapBinom.{direction}.{lfc}.{type}.out",
+        err = "analysis/marker-detection/heatmapBinom.{direction}.{lfc}.{type}.err"
+    message:
+        "[Marker detection] Plot expression of marker genes from binomial test"
+    script:
+        "../scripts/marker-detection/heatmapBinom.R"
+
 rule plotBinomEffects:
     input:
         rds = "analysis/marker-detection/combineBinom.{direction}.{lfc}.{type}.rds"
@@ -285,18 +278,3 @@ rule plotBinomEffects:
         "[Marker detection] Plot pairwise binomial effect sizes (direction = '{wildcards.direction}', lfc = {wildcards.lfc}, pval.type = '{wildcards.type}')"
     script:
         "../scripts/marker-detection/plotBinomEffects.R"
-
-rule heatmapBinom:
-    input:
-        rds = ["analysis/cell-cycle/addPerCellPhase.rds", "analysis/marker-detection/combineBinom.{direction}.{lfc}.{type}.rds"]
-    output:
-        pdf = "analysis/marker-detection/heatmapBinom.{direction}.{lfc}.{type}.pdf"
-    params:
-        size = 1000
-    log:
-        out = "analysis/marker-detection/heatmapBinom.{direction}.{lfc}.{type}.out",
-        err = "analysis/marker-detection/heatmapBinom.{direction}.{lfc}.{type}.err"
-    message:
-        "[Marker detection] Plot expression of marker genes from binomial test"
-    script:
-        "../scripts/marker-detection/heatmapBinom.R"

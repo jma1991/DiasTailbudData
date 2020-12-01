@@ -2,6 +2,10 @@
 
 sampleByCol <- function(x, f, drop = FALSE, size = 100) {
 
+    # Return object sampled by column
+
+    set.seed(1701)
+
     by.col <- split(seq_len(ncol(x)), f, drop = drop)
 
     by.len <- sapply(by.col, length)
@@ -94,10 +98,7 @@ pheatmap.annotation_col <- function(x) {
 
     # Return column annotation
 
-    data.frame(
-        Cluster = x$Cluster,
-        row.names = colnames(x)
-    )
+    data.frame(Cluster = x$Cluster, row.names = colnames(x))
 
 }
 
@@ -128,14 +129,16 @@ main <- function(input, output, params, log) {
     res <- readRDS(input$rds[2])
 
     sig <- lapply(res, subset, FDR < 0.05)
-    
+
+    sig <- lapply(sig, head, n = 5)
+
     sig <- Filter(nrow, sig)
 
     ids <- lapply(sig, rownames)
 
-    ids <- lapply(ids, head, n = 10)
-
     ids <- unique(unlist(ids))
+
+    lab <- rowData(sce)[ids, "Symbol"]
 
     mat.x <- logcounts(sce)[ids, ]
 
@@ -150,6 +153,7 @@ main <- function(input, output, params, log) {
         annotation_col = pheatmap.annotation_col(sce),
         show_rownames = TRUE,
         show_colnames = FALSE,
+        labels_row = lab,
         filename = output$pdf,
         width = 12,
         height = 9

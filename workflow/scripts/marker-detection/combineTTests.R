@@ -29,6 +29,8 @@ main <- function(input, output, log, threads, wildcards) {
         BPPARAM = MulticoreParam(workers = threads)
     )
 
+    res <- lapply(res, function(x) DataFrame(gene.id = rownames(x), gene.name = dat$gene.names[rownames(x)], x, row.names = rownames(x)))
+
     saveRDS(res, file = output$rds)
 
 }

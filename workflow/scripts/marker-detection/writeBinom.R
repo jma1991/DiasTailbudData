@@ -22,7 +22,7 @@ main <- function(input, output, log) {
 
     ids <- paste0(output$dir, "/", names(res), ".tsv")
     
-    mapply(write.table, x = res, file = ids, MoreArgs = list(quote = FALSE, sep = "\t", col.names = NA))
+    mapply(write.table, x = res, file = ids, MoreArgs = list(quote = FALSE, sep = "\t", row.names = FALSE))
 
 }
 

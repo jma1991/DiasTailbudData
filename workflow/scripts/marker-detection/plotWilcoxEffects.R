@@ -1,5 +1,45 @@
 #!/usr/bin/env Rscript
 
+pheatmap.mat <- function(x) {
+
+    # Return list of numeric matrix of the values to be plotted
+
+    lapply(x, getMarkerEffects, prefix = "AUC")
+
+}
+
+pheatmap.color <- function(x) {
+
+    # Return vector of colors used in heatmap
+    
+    viridis::viridis(100)
+
+}
+
+pheatmap.breaks <- function(x) {
+
+    # Return vector of breaks used in heatmap
+
+    seq(0, 1, length.out = 101)
+
+}
+
+pheatmap.cluster_rows <- function(x) {
+
+    # Return vector of boolean values determining if rows should be clustered
+
+    sapply(x, nrow) > 1
+
+}
+
+pheatmap.labels_row <- function(x) {
+
+    # Return list of custom labels for rows that are used instead of rownames
+
+    lapply(x, "[[", "gene.name")
+
+}
+
 main <- function(input, output, log) {
 
     # Log function
@@ -18,27 +58,35 @@ main <- function(input, output, log) {
 
     library(scran)
 
-    library(viridis)
-
     res <- readRDS(input$rds)
 
     sig <- lapply(res, subset, FDR < 0.05)
 
+    sig <- lapply(sig, head, n = 50)
+
     sig <- Filter(nrow, sig)
-
-    lfc <- lapply(sig, getMarkerEffects, prefix = "AUC")
-
-    row <- sapply(lfc, nrow) > 1
 
     dir <- dir.create(output$dir)
 
     ids <- paste0(output$dir, "/", names(sig), ".pdf")
 
-    col <- viridis(100)
+    arg <- list(
+        color = pheatmap.color("RdBu"), 
+        breaks = pheatmap.breaks(5), 
+        border_color = "#FFFFFF",
+        angle_col = 0, 
+        width = 6, 
+        height = 8
+    )
 
-    brk <- seq(0, 1, length.out = 101)
-
-    plt <- mapply(pheatmap, mat = lfc, cluster_rows = row, filename = ids, MoreArgs = list(color = col, breaks = brk, width = 8, height = 6))
+    plt <- mapply(
+        FUN = pheatmap, 
+        mat = pheatmap.mat(sig), 
+        cluster_rows = pheatmap.cluster_rows(sig), 
+        labels_row = pheatmap.labels_row(sig), 
+        filename = ids, 
+        MoreArgs = arg
+    )
 
     # Image function
 

@@ -28,10 +28,8 @@ main <- function(input, output, log, threads, wildcards) {
         pval.type = wildcards$type,
         BPPARAM = MulticoreParam(workers = threads)
     )
-
-    ids <- lapply(res, function(x) dat$gene.names[rownames(x)])
-
-    res <- Map(cbind, Symbol = ids, res)
+    
+    res <- lapply(res, function(x) DataFrame(gene.id = rownames(x), gene.name = dat$gene.names[rownames(x)], x, row.names = rownames(x)))
 
     saveRDS(res, file = output$rds)
 
