@@ -1,14 +1,8 @@
 *
-.DS_Store
-analysis
-analysis/**
-data/
-data/*
 !config
 !config/*
 !resources
-!resources/subsets
-!resources/subsets/*
+!resources/**
 !workflow
 !workflow/**
 !environment.yml
@@ -16,6 +10,6 @@ data/*
 !.gitattributes
 !.editorconfig
 !.travis.yml
-!CODE_OF_CONDUCT.md
+!CONDUCT.md
 !LICENSE
 !README.md
