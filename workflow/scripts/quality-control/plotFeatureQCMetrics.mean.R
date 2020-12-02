@@ -54,10 +54,10 @@ main <- function(input, output, log) {
 
     dat <- as.data.frame(dat)
 
-    plt <- ggplot(dat, aes(mean)) + 
-        geom_histogram(bins = 100, colour = "#76B7B2", fill = "#76B7B2") + 
-        scale_x_log10(name = "Mean counts", breaks = breaks_log10(), labels = labels_log10()) + 
-        scale_y_continuous(name = "Number of features", breaks = breaks_extended(), label = label_number_si()) + 
+    plt <- ggplot(dat, aes(x = mean)) + 
+        geom_histogram(bins = 100, colour = "#BAB0AC", fill = "#BAB0AC") + 
+        scale_x_log10(name = "Mean", breaks = breaks_log10(), labels = labels_log10()) + 
+        scale_y_continuous(name = "Frequency", breaks = breaks_extended(), label = label_number_si()) + 
         theme_custom()
 
     ggsave(output$pdf, plot = plt, width = 8, height = 6, scale = 0.8)

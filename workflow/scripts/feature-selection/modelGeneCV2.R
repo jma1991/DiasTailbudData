@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+set.seed(1701)
+
 main <- function(input, output, log, threads) {
 
     # Log function
@@ -24,9 +26,7 @@ main <- function(input, output, log, threads) {
 
     dec <- modelGeneCV2(sce, BPPARAM = par)
 
-    dec <- cbind(id = rowData(sce)$ID, name = rowData(sce)$Symbol, dec)
-
-    rownames(dec) <- rownames(sce)
+    dec <- DataFrame(gene.id = rowData(sce)$ID, gene.name = rowData(sce)$Symbol, dec, row.names = rownames(sce))
 
     saveRDS(dec, file = output$rds)
 

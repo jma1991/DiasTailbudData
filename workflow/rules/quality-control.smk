@@ -150,20 +150,20 @@ rule plotFeatureQCMetrics_detected:
     script:
         "../scripts/quality-control/plotFeatureQCMetrics.detected.R"
 
-rule plotExprsFreqVsMean:
+rule plotMeanVsDetected:
     input:
         rds = "analysis/quality-control/perFeatureQCMetrics.rds"
     output:
-        pdf = "analysis/quality-control/plotExprsFreqVsMean.pdf"
+        pdf = "analysis/quality-control/plotMeanVsDetected.pdf"
     params:
-        n = 25
+        n = 50
     log:
-        out = "analysis/quality-control/plotExprsFreqVsMean.out",
-        err = "analysis/quality-control/plotExprsFreqVsMean.err"
+        out = "analysis/quality-control/plotMeanVsDetected.out",
+        err = "analysis/quality-control/plotMeanVsDetected.err"
     message:
-        "[Quality Control] Plot frequency of expression against mean expression level"
+        "[Quality Control] Plot mean counts against number of expressed features"
     script:
-        "../scripts/quality-control/plotExprsFreqVsMean.R"
+        "../scripts/quality-control/plotMeanVsDetected.R"
 
 rule plotHighestExprs:
     input:
@@ -171,7 +171,7 @@ rule plotHighestExprs:
     output:
         pdf = "analysis/quality-control/plotHighestExprs.pdf"
     params:
-        n = 25
+        n = 50
     log:
         out = "analysis/quality-control/plotHighestExprs.out",
         err = "analysis/quality-control/plotHighestExprs.err"

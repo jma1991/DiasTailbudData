@@ -26,9 +26,7 @@ main <- function(input, output, log, threads) {
 
     dec <- modelGeneVar(sce, BPPARAM = par)
 
-    dec <- cbind(id = rowData(sce)$ID, name = rowData(sce)$Symbol, dec)
-
-    rownames(dec) <- rownames(sce)
+    dec <- DataFrame(gene.id = rowData(sce)$ID, gene.name = rowData(sce)$Symbol, dec, row.names = rownames(sce))
 
     saveRDS(dec, file = output$rds)
 

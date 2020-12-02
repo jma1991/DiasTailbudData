@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+set.seed(1701)
+
 pheatmap.mat <- function(x) {
 
     # Scale rows by 'variance-aware' Z-transformation

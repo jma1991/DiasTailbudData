@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+set.seed(1701)
+
 var.field <- function(x) {
 
     # Identify the relevant metric of variation

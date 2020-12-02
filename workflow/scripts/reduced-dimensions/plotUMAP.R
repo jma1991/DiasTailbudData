@@ -1,5 +1,7 @@
 #!/usr/bin/env Rscript
 
+set.seed(1701)
+
 scale.name <- function(x) {
     
     d <- list(

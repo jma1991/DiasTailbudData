@@ -32,13 +32,13 @@ rule all:
         "analysis/quality-control/perFeatureQCMetrics.rds",
         "analysis/quality-control/plotFeatureQCMetrics.mean.pdf",
         "analysis/quality-control/plotFeatureQCMetrics.detected.pdf",
-        "analysis/quality-control/plotExprsFreqVsMean.pdf",
+        "analysis/quality-control/plotMeanVsDetected.pdf",
         "analysis/quality-control/plotHighestExprs.pdf",
         # Normalization
         "analysis/normalization/librarySizeFactors.rds",
         "analysis/normalization/calculateSumFactors.rds",
         "analysis/normalization/logNormCounts.rds",
-        # Feature selection
+        # # Feature selection
         "analysis/feature-selection/modelGeneVar.rds",
         "analysis/feature-selection/modelGeneCV2.rds",
         "analysis/feature-selection/modelGeneVarByPoisson.rds",
@@ -48,9 +48,10 @@ rule all:
         "analysis/feature-selection/modelGeneVar.HVG.rds",
         "analysis/feature-selection/modelGeneCV2.HVG.rds",
         "analysis/feature-selection/modelGeneVarByPoisson.HVG.rds",
-        #"analysis/feature-selection/plotHeatmap.modelGeneVar.HVG.pdf",
-        #"analysis/feature-selection/plotHeatmap.modelGeneCV2.HVG.pdf",
-        #"analysis/feature-selection/plotHeatmap.modelGeneVarByPoisson.HVG.pdf",
+        "analysis/feature-selection/aggregateReference.rds",
+        "analysis/feature-selection/plotHeatmap.modelGeneVar.HVG.pdf",
+        "analysis/feature-selection/plotHeatmap.modelGeneCV2.HVG.pdf",
+        "analysis/feature-selection/plotHeatmap.modelGeneVarByPoisson.HVG.pdf",
         "analysis/feature-selection/calculatePCA.modelGeneVar.HVG.rds",
         "analysis/feature-selection/calculatePCA.modelGeneCV2.HVG.rds",
         "analysis/feature-selection/calculatePCA.modelGeneVarByPoisson.HVG.rds",
@@ -64,7 +65,7 @@ rule all:
         expand("analysis/feature-selection/plotTSNE.{model}.HVG.{metric}.pdf", model = MODELS, metric = METRICS),
         expand("analysis/feature-selection/plotUMAP.{model}.HVG.{metric}.pdf", model = MODELS, metric = METRICS),
         "analysis/feature-selection/rowSubset.rds",
-        # Dimensionality reduction
+        # # Dimensionality reduction
         "analysis/reduced-dimensions/calculatePCA.rds",
         "analysis/reduced-dimensions/findElbowPoint.rds",
         "analysis/reduced-dimensions/plotElbowPoint.pdf",
@@ -86,7 +87,7 @@ rule all:
         "analysis/reduced-dimensions/plotUMAP.sum.pdf",
         "analysis/reduced-dimensions/plotUMAP.detected.pdf",
         "analysis/reduced-dimensions/reducedDims.rds",
-        # Clustering
+        # # Clustering
         "analysis/clustering/NNGraphParam.10.jaccard.louvain.rds",
         "analysis/clustering/NNGraphPCAPlot.10.jaccard.louvain.pdf",
         "analysis/clustering/NNGraphTSNEPlot.10.jaccard.louvain.pdf",
@@ -121,8 +122,6 @@ rule all:
         "analysis/marker-detection/writeTTests.any.0.all",
         "analysis/marker-detection/plotTTestsEffects.any.0.all",
         "analysis/marker-detection/heatmapTTests.any.0.all.pdf",
-        "analysis/marker-detection/plotTTestsTSNE.any.0.all",
-        "analysis/marker-detection/plotTTestsUMAP.any.0.all",
         "analysis/marker-detection/pairwiseWilcox.any.0.rds",
         "analysis/marker-detection/combineWilcox.any.0.all.rds",
         "analysis/marker-detection/writeWilcox.any.0.all",
@@ -151,7 +150,6 @@ rule all:
         "analysis/trajectory/plotVeloPCA.pdf",
         "analysis/trajectory/plotVeloTSNE.pdf",
         "analysis/trajectory/plotVeloUMAP.pdf"
-        # Interactive
 
 # Workflow rules
 include: "rules/droplet-processing.smk"

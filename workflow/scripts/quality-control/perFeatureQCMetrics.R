@@ -20,7 +20,12 @@ main <- function(input, output, log) {
 
     out <- perFeatureQCMetrics(sce)
 
-    rownames(out) <- rownames(sce)
+    out <- DataFrame(
+        gene.id = rowData(sce)$ID, 
+        gene.name = rowData(sce)$Symbol, 
+        out, 
+        row.names = rownames(sce)
+    )
 
     saveRDS(out, file = output$rds)
 

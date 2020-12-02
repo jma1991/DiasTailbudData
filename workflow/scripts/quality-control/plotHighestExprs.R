@@ -1,8 +1,22 @@
 #!/usr/bin/env Rscript
 
-plotHighestExprs <- function(x, n) {
+theme_custom <- function() {
+
+    # Return custom theme
+
+    theme_bw() +
+    theme(
+        axis.title.x = element_text(margin = unit(c(1, 0, 0, 0), "lines")),
+        axis.title.y = element_text(margin = unit(c(0, 1, 0, 0), "lines")),
+    )
+
+}
+
+plotHighestExprs <- function(x, n = 50) {
 
     # Plot the highest expressing features
+
+    rownames(x) <- uniquifyFeatureNames(rowData(x)$ID, rowData(x)$Symbol)
 
     mat <- counts(x)
     
@@ -23,12 +37,13 @@ plotHighestExprs <- function(x, n) {
         gene = rep(rownames(mat), ncol(mat))
     )
 
-    ggplot(dat, aes(prop, reorder(gene, prop, mean), fill = gene)) + 
-        geom_boxplot(show.legend = FALSE) + 
+    ggplot(dat, aes(prop, reorder(gene, prop, median))) + 
+        geom_point(colour = "#BAB0AC", shape = 124) + 
+        stat_summary(fun = "median", geom = "point") + 
         scale_x_continuous(labels = scales::label_percent()) + 
         scale_y_discrete(labels = ) + 
-        labs(x = "Total counts (%)", y = "Feature") + 
-        theme_bw()
+        labs(x = "Counts", y = "Feature") + 
+        theme_custom()
 
 }
 
@@ -50,11 +65,9 @@ main <- function(input, output, params, log) {
 
     sce <- readRDS(input$rds)
 
-    rownames(sce) <- uniquifyFeatureNames(rowData(sce)$ID, rowData(sce)$Symbol)
-
     plt <- plotHighestExprs(sce, n = params$n)
 
-    ggsave(output$pdf, plot = plt, width = 8, height = 6, scale = 0.8)
+    ggsave(output$pdf, plot = plt, width = 7.5, height = 10, scale = 0.8)
 
 }
 

@@ -37,9 +37,9 @@ main <- function(input, output, log) {
     dat <- as.data.frame(dat)
 
     plt <- ggplot(dat, aes(x = detected)) + 
-        geom_histogram(bins = 100, colour = "#76B7B2", fill = "#76B7B2") + 
-        scale_x_continuous(name = "Proportion of cells", breaks = breaks_extended(), label = label_percent(scale = 1)) + 
-        scale_y_continuous(name = "Number of features", breaks = breaks_extended(), label = label_number_si()) + 
+        geom_histogram(bins = 100, colour = "#BAB0AC", fill = "#BAB0AC") + 
+        scale_x_continuous(name = "Detected", breaks = breaks_extended(), label = label_percent(scale = 1)) + 
+        scale_y_continuous(name = "Frequency", breaks = breaks_extended(), label = label_number_si()) + 
         theme_custom()
 
     ggsave(output$pdf, plot = plt, width = 8, height = 6, scale = 0.8)

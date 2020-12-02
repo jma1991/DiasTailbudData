@@ -113,8 +113,6 @@ rule FeatureSelection_aggregateReference:
         err = "analysis/feature-selection/aggregateReference.err"
     message:
         "[Feature selection] Aggregate reference samples"
-    threads:
-        4
     script:
         "../scripts/feature-selection/aggregateReference.R"
 
@@ -127,7 +125,7 @@ rule FeatureSelection_plotHeatmap:
         out = "analysis/feature-selection/plotHeatmap.{model}.HVG.out",
         err = "analysis/feature-selection/plotHeatmap.{model}.HVG.err"
     message:
-        "[Feature selection] Plot heatmap of highly variable gene expression values"
+        "[Feature selection] Plot HVG using {wildcards.model}"
     script:
         "../scripts/feature-selection/plotHeatmap.R"
 
@@ -140,7 +138,7 @@ rule FeatureSelection_calculatePCA:
         out = "analysis/feature-selection/calculatePCA.{model}.HVG.out",
         err = "analysis/feature-selection/calculatePCA.{model}.HVG.err"
     message:
-        "[Feature selection] Perform PCA on expression data"
+        "[Feature selection] Perform PCA on expression data ({wildcards.model})"
     script:
         "../scripts/feature-selection/calculatePCA.R"
 
@@ -153,7 +151,7 @@ rule FeatureSelection_calculateTSNE:
         out = "analysis/feature-selection/calculateTSNE.{model}.HVG.out",
         err = "analysis/feature-selection/calculateTSNE.{model}.HVG.err"
     message:
-        "[Feature selection] Perform TSNE on PCA matrix"
+        "[Feature selection] Perform TSNE on PCA matrix ({wildcards.model})"
     script:
         "../scripts/feature-selection/calculateTSNE.R"
 
@@ -166,7 +164,7 @@ rule FeatureSelection_calculateUMAP:
         out = "analysis/feature-selection/calculateUMAP.{model}.HVG.out",
         err = "analysis/feature-selection/calculateUMAP.{model}.HVG.err"
     message:
-        "[Feature selection] Perform UMAP on PCA matrix"
+        "[Feature selection] Perform UMAP on PCA matrix ({wildcards.model})"
     threads:
         1
     script:
