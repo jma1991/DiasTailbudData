@@ -1,3 +1,4 @@
 analysis/**/*.rds
+analysis/interactive
 data/*.rds
 .snakemake
