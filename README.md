@@ -33,7 +33,7 @@ The embryos were processed by André Dias accordingly:
 Contributing
 ------------
 
-If you have a question or have spotted a mistake please open an issue or submit a pull request. Participation in this project is subject to a [Code of Conduct](CODE_OF_CONDUCT.md).
+If you have a question or have spotted a mistake please open an issue or submit a pull request. Participation in this project is subject to a [Code of Conduct](CONDUCT.md).
 
 Authors
 ------
