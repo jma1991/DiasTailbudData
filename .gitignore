@@ -1,4 +1,9 @@
 *
+analysis/**
+!analysis/**/*.pdf
+!analysis/**/*.tsv
+!analysis/**/*.out
+!analysis/**/*.err
 !config
 !config/*
 !resources
