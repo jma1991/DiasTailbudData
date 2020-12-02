@@ -18,8 +18,8 @@ main <- function(input, output, params, log) {
 
     rsconnect::setAccountInfo(
         name = "jashmore",
-        token = "5ABBC5A95B9040FF74F0F4AEF8C455B9",
-        secret = "t6cjZ2ZVuGJ1ZHZfUoFdozrbzXhsNsq3Kh8UfGHm"
+        token = <TOKEN>,
+        secret = <SECRET>
     )
 
     file.copy(input$rds, output$rds, overwrite = TRUE)
