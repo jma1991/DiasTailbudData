@@ -160,7 +160,10 @@ rule all:
         "analysis/trajectory/gridVectors.UMAP.rds",
         "analysis/trajectory/plotVeloPCA.pdf",
         "analysis/trajectory/plotVeloTSNE.pdf",
-        "analysis/trajectory/plotVeloUMAP.pdf"
+        "analysis/trajectory/plotVeloUMAP.pdf",
+        # Interactive
+        "analysis/interactive/app.R",
+        "analysis/interactive/data.rds"
 
 # Workflow rules
 include: "rules/droplet-processing.smk"
@@ -174,3 +177,4 @@ include: "rules/cell-cycle.smk"
 include: "rules/marker-detection.smk"
 include: "rules/cell-annotation.smk"
 include: "rules/trajectory.smk"
+include: "rules/interactive.smk"

@@ -1,4 +1,4 @@
-name: osca
+name: DiasTailbudData
 channels:
   - conda-forge
   - bioconda
@@ -49,6 +49,7 @@ dependencies:
   - r-pheatmap
   - r-rmtstat
   - r-robustbase
+  - r-rsconnect
   - r-rtsne
   - r-statmod
   - r-uwot
