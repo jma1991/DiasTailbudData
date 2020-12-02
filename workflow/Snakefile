@@ -5,10 +5,6 @@
 
 configfile: "config/config.yml"
 
-MODELS = ["modelGeneVar", "modelGeneCV2", "modelGeneVarByPoisson"]
-
-METRICS = ["sum", "detected"]
-
 rule all:
     input:
         # Droplet processing
@@ -61,9 +57,24 @@ rule all:
         "analysis/feature-selection/calculateUMAP.modelGeneVar.HVG.rds",
         "analysis/feature-selection/calculateUMAP.modelGeneCV2.HVG.rds",
         "analysis/feature-selection/calculateUMAP.modelGeneVarByPoisson.HVG.rds",
-        expand("analysis/feature-selection/plotPCA.{model}.HVG.{metric}.pdf", model = MODELS, metric = METRICS),
-        expand("analysis/feature-selection/plotTSNE.{model}.HVG.{metric}.pdf", model = MODELS, metric = METRICS),
-        expand("analysis/feature-selection/plotUMAP.{model}.HVG.{metric}.pdf", model = MODELS, metric = METRICS),
+        "analysis/feature-selection/plotPCA.modelGeneVar.HVG.sum.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneVar.HVG.detected.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneCV2.HVG.sum.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneCV2.HVG.detected.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneVarByPoisson.HVG.sum.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneVarByPoisson.HVG.detected.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneVar.HVG.sum.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneVar.HVG.detected.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneCV2.HVG.sum.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneCV2.HVG.detected.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneVarByPoisson.HVG.sum.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneVarByPoisson.HVG.detected.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneVar.HVG.sum.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneVar.HVG.detected.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneCV2.HVG.sum.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneCV2.HVG.detected.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneVarByPoisson.HVG.sum.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneVarByPoisson.HVG.detected.pdf",
         "analysis/feature-selection/rowSubset.rds",
         # # Dimensionality reduction
         "analysis/reduced-dimensions/calculatePCA.rds",
