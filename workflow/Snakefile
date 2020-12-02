@@ -34,7 +34,7 @@ rule all:
         "analysis/normalization/librarySizeFactors.rds",
         "analysis/normalization/calculateSumFactors.rds",
         "analysis/normalization/logNormCounts.rds",
-        # # Feature selection
+        # Feature selection
         "analysis/feature-selection/modelGeneVar.rds",
         "analysis/feature-selection/modelGeneCV2.rds",
         "analysis/feature-selection/modelGeneVarByPoisson.rds",
@@ -76,7 +76,7 @@ rule all:
         "analysis/feature-selection/plotUMAP.modelGeneVarByPoisson.HVG.sum.pdf",
         "analysis/feature-selection/plotUMAP.modelGeneVarByPoisson.HVG.detected.pdf",
         "analysis/feature-selection/rowSubset.rds",
-        # # Dimensionality reduction
+        # Dimensionality reduction
         "analysis/reduced-dimensions/calculatePCA.rds",
         "analysis/reduced-dimensions/findElbowPoint.rds",
         "analysis/reduced-dimensions/plotElbowPoint.pdf",
@@ -98,7 +98,7 @@ rule all:
         "analysis/reduced-dimensions/plotUMAP.sum.pdf",
         "analysis/reduced-dimensions/plotUMAP.detected.pdf",
         "analysis/reduced-dimensions/reducedDims.rds",
-        # # Clustering
+        # Clustering
         "analysis/clustering/NNGraphParam.10.jaccard.louvain.rds",
         "analysis/clustering/NNGraphPCAPlot.10.jaccard.louvain.pdf",
         "analysis/clustering/NNGraphTSNEPlot.10.jaccard.louvain.pdf",
@@ -160,10 +160,7 @@ rule all:
         "analysis/trajectory/gridVectors.UMAP.rds",
         "analysis/trajectory/plotVeloPCA.pdf",
         "analysis/trajectory/plotVeloTSNE.pdf",
-        "analysis/trajectory/plotVeloUMAP.pdf",
-        # Interactive
-        "analysis/interactive/app.R",
-        "analysis/interactive/data.rds"
+        "analysis/trajectory/plotVeloUMAP.pdf"
 
 # Workflow rules
 include: "rules/droplet-processing.smk"
@@ -177,4 +174,3 @@ include: "rules/cell-cycle.smk"
 include: "rules/marker-detection.smk"
 include: "rules/cell-annotation.smk"
 include: "rules/trajectory.smk"
-include: "rules/interactive.smk"

@@ -32,8 +32,8 @@ calculatePCA:
   ncomponents: 50
 
 calculateTSNE:
-  perplexity: 15
-  max_iter: 2000
+  perplexity: 30
+  max_iter: 2500
 
 calculateUMAP:
   n_neighbors: 15
