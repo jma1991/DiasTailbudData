@@ -1,0 +1,3 @@
+Linking to ImageMagick 7.0.10.28
+Enabled features: cairo, fontconfig, freetype, fftw, pango, rsvg, webp, x11
+Disabled features: ghostscript, lcms
