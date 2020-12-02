@@ -1,5 +1,4 @@
 *
-analysis/**
 !analysis/**/*.pdf
 !analysis/**/*.tsv
 !analysis/**/*.out
