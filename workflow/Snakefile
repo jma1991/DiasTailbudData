@@ -147,35 +147,22 @@ rule all:
         "analysis/cell-cycle/plotPhaseTSNE.pdf",
         "analysis/cell-cycle/plotPhaseUMAP.pdf",
         # Marker gene detection
-        # "analysis/marker-detection/pairwiseTTests.any.0.rds",
-        # "analysis/marker-detection/combineTTests.any.0.all.rds",
-        # "analysis/marker-detection/writeTTests.any.0.all",
-        # "analysis/marker-detection/plotTTestsEffects.any.0.all",
-        # "analysis/marker-detection/heatmapTTests.any.0.all.pdf",
-        # "analysis/marker-detection/pairwiseWilcox.any.0.rds",
-        # "analysis/marker-detection/combineWilcox.any.0.all.rds",
-        # "analysis/marker-detection/writeWilcox.any.0.all",
-        # "analysis/marker-detection/plotWilcoxEffects.any.0.all",
-        # "analysis/marker-detection/heatmapWilcox.any.0.all.pdf",
-        # "analysis/marker-detection/pairwiseBinom.any.0.rds",
-        # "analysis/marker-detection/combineBinom.any.0.all.rds",
-        # "analysis/marker-detection/writeBinom.any.0.all",
-        # "analysis/marker-detection/plotBinomEffects.any.0.all",
-        # "analysis/marker-detection/heatmapBinom.any.0.all.pdf",
-        # Trajectory
-        #"analysis/trajectory/perCellEntropy.rds",
-        #"analysis/trajectory/plotEntropy.pdf",
-        #"analysis/trajectory/scvelo.rds",
-        #"analysis/trajectory/embedVelocity.PCA.rds",
-        #"analysis/trajectory/embedVelocity.TSNE.rds",
-        #"analysis/trajectory/embedVelocity.UMAP.rds",
-        #"analysis/trajectory/gridVectors.PCA.rds",
-        #"analysis/trajectory/gridVectors.TSNE.rds",
-        #"analysis/trajectory/gridVectors.UMAP.rds",
-        #"analysis/trajectory/plotVeloPCA.pdf",
-        #"analysis/trajectory/plotVeloTSNE.pdf",
-        #"analysis/trajectory/plotVeloUMAP.pdf"        
-
+        "analysis/marker-detection/pairwiseTTests.any.0.rds",
+        "analysis/marker-detection/combineTTests.any.0.all.rds",
+        "analysis/marker-detection/writeTTests.any.0.all",
+        "analysis/marker-detection/plotTTestsEffects.any.0.all",
+        "analysis/marker-detection/heatmapTTests.any.0.all.pdf",
+        "analysis/marker-detection/pairwiseWilcox.any.0.rds",
+        "analysis/marker-detection/combineWilcox.any.0.all.rds",
+        "analysis/marker-detection/writeWilcox.any.0.all",
+        "analysis/marker-detection/plotWilcoxEffects.any.0.all",
+        "analysis/marker-detection/heatmapWilcox.any.0.all.pdf",
+        "analysis/marker-detection/pairwiseBinom.any.0.rds",
+        "analysis/marker-detection/combineBinom.any.0.all.rds",
+        "analysis/marker-detection/writeBinom.any.0.all",
+        "analysis/marker-detection/plotBinomEffects.any.0.all",
+        "analysis/marker-detection/heatmapBinom.any.0.all.pdf"
+ 
 # Workflow rules
 include: "rules/droplet-processing.smk"
 include: "rules/quality-control.smk"
@@ -189,4 +176,3 @@ include: "rules/stripped-detection.smk"
 include: "rules/cell-cycle.smk"
 include: "rules/marker-detection.smk"
 include: "rules/cell-annotation.smk"
-include: "rules/trajectory.smk"
