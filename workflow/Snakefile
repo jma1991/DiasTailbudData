@@ -1,0 +1,192 @@
+# Author: James Ashmore
+# Copyright: Copyright 1010, James Ashmore
+# Email: jashmore@ed.ac.uk
+# License: MIT
+
+configfile: "config/config.yml"
+
+rule all:
+    input:
+        # Droplet processing
+        "analysis/droplet-processing/barcodeRanks.rds",
+        "analysis/droplet-processing/barcodeRanksPlot.pdf",
+        "analysis/droplet-processing/emptyDrops.rds",
+        "analysis/droplet-processing/emptyDrops.ambient.rds",
+        "analysis/droplet-processing/emptyDropsLimited.pdf",
+        "analysis/droplet-processing/emptyDropsLogProb.pdf",
+        "analysis/droplet-processing/emptyDropsPValue.pdf",
+        "analysis/droplet-processing/emptyDropsRank.pdf",
+        "analysis/droplet-processing/filterByDrops.rds",
+        # Quality control
+        "analysis/quality-control/perCellQCMetrics.rds",
+        "analysis/quality-control/quickPerCellQC.rds",
+        "analysis/quality-control/plotCellQCMetrics.sum.pdf",
+        "analysis/quality-control/plotCellQCMetrics.detected.pdf",
+        "analysis/quality-control/plotCellQCMetrics.MT.pdf",
+        "analysis/quality-control/plotCellQCMetrics.sum.MT.pdf",
+        "analysis/quality-control/plotCellQCMetrics.sum.detected.pdf",
+        "analysis/quality-control/filterCellsByQC.rds",
+        "analysis/quality-control/perFeatureQCMetrics.rds",
+        "analysis/quality-control/plotFeatureQCMetrics.mean.pdf",
+        "analysis/quality-control/plotFeatureQCMetrics.detected.pdf",
+        "analysis/quality-control/plotMeanVsDetected.pdf",
+        "analysis/quality-control/plotHighestExprs.pdf",
+        # Normalization
+        "analysis/normalization/librarySizeFactors.rds",
+        "analysis/normalization/calculateSumFactors.rds",
+        "analysis/normalization/logNormCounts.rds",
+        # Data integration
+        "analysis/data-integration/regressBatches.rds",
+        # Feature selection
+        "analysis/feature-selection/modelGeneVar.rds",
+        "analysis/feature-selection/modelGeneCV2.rds",
+        "analysis/feature-selection/modelGeneVarByPoisson.rds",
+        "analysis/feature-selection/plotGeneVar.pdf",
+        "analysis/feature-selection/plotGeneCV2.pdf",
+        "analysis/feature-selection/plotGeneVarByPoisson.pdf",
+        "analysis/feature-selection/modelGeneVar.HVG.rds",
+        "analysis/feature-selection/modelGeneCV2.HVG.rds",
+        "analysis/feature-selection/modelGeneVarByPoisson.HVG.rds",
+        "analysis/feature-selection/aggregateReference.rds",
+        "analysis/feature-selection/plotHeatmap.modelGeneVar.HVG.pdf",
+        "analysis/feature-selection/plotHeatmap.modelGeneCV2.HVG.pdf",
+        "analysis/feature-selection/plotHeatmap.modelGeneVarByPoisson.HVG.pdf",
+        "analysis/feature-selection/calculatePCA.modelGeneVar.HVG.rds",
+        "analysis/feature-selection/calculatePCA.modelGeneCV2.HVG.rds",
+        "analysis/feature-selection/calculatePCA.modelGeneVarByPoisson.HVG.rds",
+        "analysis/feature-selection/calculateTSNE.modelGeneVar.HVG.rds",
+        "analysis/feature-selection/calculateTSNE.modelGeneCV2.HVG.rds",
+        "analysis/feature-selection/calculateTSNE.modelGeneVarByPoisson.HVG.rds",
+        "analysis/feature-selection/calculateUMAP.modelGeneVar.HVG.rds",
+        "analysis/feature-selection/calculateUMAP.modelGeneCV2.HVG.rds",
+        "analysis/feature-selection/calculateUMAP.modelGeneVarByPoisson.HVG.rds",
+        "analysis/feature-selection/plotPCA.modelGeneVar.HVG.sum.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneVar.HVG.detected.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneVar.HVG.subsets_MT_percent.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneCV2.HVG.sum.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneCV2.HVG.detected.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneCV2.HVG.subsets_MT_percent.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneVarByPoisson.HVG.sum.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneVarByPoisson.HVG.detected.pdf",
+        "analysis/feature-selection/plotPCA.modelGeneVarByPoisson.HVG.subsets_MT_percent.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneVar.HVG.sum.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneVar.HVG.detected.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneVar.HVG.subsets_MT_percent.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneCV2.HVG.sum.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneCV2.HVG.detected.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneCV2.HVG.subsets_MT_percent.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneVarByPoisson.HVG.sum.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneVarByPoisson.HVG.detected.pdf",
+        "analysis/feature-selection/plotTSNE.modelGeneVarByPoisson.HVG.subsets_MT_percent.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneVar.HVG.sum.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneVar.HVG.detected.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneVar.HVG.subsets_MT_percent.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneCV2.HVG.sum.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneCV2.HVG.detected.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneCV2.HVG.subsets_MT_percent.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneVarByPoisson.HVG.sum.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneVarByPoisson.HVG.detected.pdf",
+        "analysis/feature-selection/plotUMAP.modelGeneVarByPoisson.HVG.subsets_MT_percent.pdf",
+        "analysis/feature-selection/rowSubset.rds",
+        # Dimensionality reduction
+        "analysis/reduced-dimensions/calculatePCA.rds",
+        "analysis/reduced-dimensions/findElbowPoint.rds",
+        "analysis/reduced-dimensions/plotElbowPoint.pdf",
+        "analysis/reduced-dimensions/getDenoisedPCs.rds",
+        "analysis/reduced-dimensions/plotDenoisedPCs.pdf",
+        "analysis/reduced-dimensions/getClusteredPCs.rds",
+        "analysis/reduced-dimensions/plotClusteredPCs.pdf",
+        "analysis/reduced-dimensions/selectPCA.rds",
+        "analysis/reduced-dimensions/parallelTSNE.rds",
+        "analysis/reduced-dimensions/visualiseTSNE.pdf",
+        "analysis/reduced-dimensions/parallelUMAP.rds",
+        "analysis/reduced-dimensions/visualiseUMAP.pdf",
+        "analysis/reduced-dimensions/selectTSNE.rds",
+        "analysis/reduced-dimensions/selectUMAP.rds",
+        "analysis/reduced-dimensions/plotPCA.sum.pdf",
+        "analysis/reduced-dimensions/plotPCA.detected.pdf",
+        "analysis/reduced-dimensions/plotPCA.subsets_MT_percent.pdf",
+        "analysis/reduced-dimensions/plotTSNE.sum.pdf",
+        "analysis/reduced-dimensions/plotTSNE.detected.pdf",
+        "analysis/reduced-dimensions/plotTSNE.subsets_MT_percent.pdf",
+        "analysis/reduced-dimensions/plotUMAP.sum.pdf",
+        "analysis/reduced-dimensions/plotUMAP.detected.pdf",
+        "analysis/reduced-dimensions/plotUMAP.subsets_MT_percent.pdf",
+        "analysis/reduced-dimensions/reducedDims.rds",
+        # Clustering
+        "analysis/clustering/NNGraphParam.10.jaccard.louvain.rds",
+        "analysis/clustering/NNGraphPCAPlot.10.jaccard.louvain.pdf",
+        "analysis/clustering/NNGraphTSNEPlot.10.jaccard.louvain.pdf",
+        "analysis/clustering/NNGraphUMAPPlot.10.jaccard.louvain.pdf",
+        "analysis/clustering/NNGraphSilhouette.10.jaccard.louvain.rds",
+        "analysis/clustering/NNGraphSilhouettePlot.10.jaccard.louvain.pdf",
+        "analysis/clustering/NNGraphPurity.10.jaccard.louvain.rds",
+        "analysis/clustering/NNGraphPurityPlot.10.jaccard.louvain.pdf",
+        "analysis/clustering/NNGraphModularity.10.jaccard.louvain.rds",
+        "analysis/clustering/NNGraphModularityPlot.10.jaccard.louvain.pdf",
+        "analysis/clustering/clusterLabels.rds",
+        # Doublet detection
+        "analysis/doublet-detection/findDoubletClusters.rds",
+        "analysis/doublet-detection/nameDoubletClusters.rds",
+        "analysis/doublet-detection/computeDoubletDensity.rds",
+        "analysis/doublet-detection/mockDoubletSCE.rds",
+        "analysis/doublet-detection/plotDoubletSina.pdf",
+        "analysis/doublet-detection/plotDoubletPCA.pdf",
+        "analysis/doublet-detection/plotDoubletTSNE.pdf",
+        "analysis/doublet-detection/plotDoubletUMAP.pdf",
+        # Stripped detection
+        "analysis/stripped-detection/findStrippedClusters.rds",
+        "analysis/stripped-detection/colStripped.rds",
+        "analysis/stripped-detection/plotStrippedSina.pdf",
+        # Cell cycle assignment
+        "analysis/cell-cycle/cyclone.rds",
+        "analysis/cell-cycle/addPerCellPhase.rds",
+        "analysis/cell-cycle/plotCyclone.pdf",
+        "analysis/cell-cycle/plotPhaseSina.pdf",
+        "analysis/cell-cycle/plotPhasePCA.pdf",
+        "analysis/cell-cycle/plotPhaseTSNE.pdf",
+        "analysis/cell-cycle/plotPhaseUMAP.pdf",
+        # Marker gene detection
+        # "analysis/marker-detection/pairwiseTTests.any.0.rds",
+        # "analysis/marker-detection/combineTTests.any.0.all.rds",
+        # "analysis/marker-detection/writeTTests.any.0.all",
+        # "analysis/marker-detection/plotTTestsEffects.any.0.all",
+        # "analysis/marker-detection/heatmapTTests.any.0.all.pdf",
+        # "analysis/marker-detection/pairwiseWilcox.any.0.rds",
+        # "analysis/marker-detection/combineWilcox.any.0.all.rds",
+        # "analysis/marker-detection/writeWilcox.any.0.all",
+        # "analysis/marker-detection/plotWilcoxEffects.any.0.all",
+        # "analysis/marker-detection/heatmapWilcox.any.0.all.pdf",
+        # "analysis/marker-detection/pairwiseBinom.any.0.rds",
+        # "analysis/marker-detection/combineBinom.any.0.all.rds",
+        # "analysis/marker-detection/writeBinom.any.0.all",
+        # "analysis/marker-detection/plotBinomEffects.any.0.all",
+        # "analysis/marker-detection/heatmapBinom.any.0.all.pdf",
+        # Trajectory
+        #"analysis/trajectory/perCellEntropy.rds",
+        #"analysis/trajectory/plotEntropy.pdf",
+        #"analysis/trajectory/scvelo.rds",
+        #"analysis/trajectory/embedVelocity.PCA.rds",
+        #"analysis/trajectory/embedVelocity.TSNE.rds",
+        #"analysis/trajectory/embedVelocity.UMAP.rds",
+        #"analysis/trajectory/gridVectors.PCA.rds",
+        #"analysis/trajectory/gridVectors.TSNE.rds",
+        #"analysis/trajectory/gridVectors.UMAP.rds",
+        #"analysis/trajectory/plotVeloPCA.pdf",
+        #"analysis/trajectory/plotVeloTSNE.pdf",
+        #"analysis/trajectory/plotVeloUMAP.pdf"        
+
+# Workflow rules
+include: "rules/droplet-processing.smk"
+include: "rules/quality-control.smk"
+include: "rules/normalization.smk"
+include: "rules/data-integration.smk"
+include: "rules/feature-selection.smk"
+include: "rules/reduced-dimensions.smk"
+include: "rules/clustering.smk"
+include: "rules/doublet-detection.smk"
+include: "rules/stripped-detection.smk"
+include: "rules/cell-cycle.smk"
+include: "rules/marker-detection.smk"
+include: "rules/cell-annotation.smk"
+include: "rules/trajectory.smk"
