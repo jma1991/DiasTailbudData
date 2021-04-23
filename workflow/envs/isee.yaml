@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bioconductor-isee
+  - bioconductor-singlecellexperiment
+  - r-biocmanager
+  - r-rsconnect

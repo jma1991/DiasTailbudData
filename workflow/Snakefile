@@ -161,8 +161,11 @@ rule all:
         "analysis/marker-detection/combineBinom.any.0.all.rds",
         "analysis/marker-detection/writeBinom.any.0.all",
         "analysis/marker-detection/plotBinomEffects.any.0.all",
-        "analysis/marker-detection/heatmapBinom.any.0.all.pdf"
- 
+        "analysis/marker-detection/heatmapBinom.any.0.all.pdf",
+        # Interactive
+        "analysis/interactive/app.R",
+        "analysis/interactive/sce.rds"
+
 # Workflow rules
 include: "rules/droplet-processing.smk"
 include: "rules/quality-control.smk"
@@ -176,3 +179,4 @@ include: "rules/stripped-detection.smk"
 include: "rules/cell-cycle.smk"
 include: "rules/marker-detection.smk"
 include: "rules/cell-annotation.smk"
+include: "rules/interactive.smk"
