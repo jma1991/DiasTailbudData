@@ -20,7 +20,21 @@ main <- function(input, output, log, threads) {
 
     library(velociraptor)
 
-    sce <- readRDS(input$rds)
+    sce <- readRDS(input$rds[1])
+
+    vel <- readRDS(input$rds[2])
+
+    row <- intersect(rownames(sce), rownames(vel))
+
+    col <- intersect(colnames(sce), colnames(vel))
+
+    sce <- sce[row, col]
+
+    vel <- vel[row, col]
+
+    assay(sce, "spliced") <- assay(vel, "spliced")
+
+    assay(sce, "unspliced") <- assay(vel, "unspliced")
 
     hvg <- rowSubset(sce, "HVG")
 

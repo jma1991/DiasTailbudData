@@ -20,6 +20,8 @@ main <- function(input, output, params) {
         "library(SingleCellExperiment)",
         "library(ResidualMatrix)",
         "sce <- readRDS('sce.rds')",
+        "ind <- which(rowData(sce)$ID == 'ENSMUSG00000062327')",
+        "rowData(sce)$Symbol[ind] <- 'Bra'",
         "rownames(sce) <- scuttle::uniquifyFeatureNames(ID = rowData(sce)$ID, names = rowData(sce)$Symbol)",
         "iSEE(sce, appTitle = 'DiasTailbudData')"
     )

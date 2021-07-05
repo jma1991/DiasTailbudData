@@ -57,7 +57,7 @@ rule plotCurves:
 
 rule scvelo:
     input:
-        rds = "analysis/cell-cycle/addPerCellPhase.rds"
+        rds = ["analysis/cell-cycle/addPerCellPhase.rds", "data/LoomExperiment.rds"]
     output:
         rds = "analysis/trajectory/scvelo.rds"
     log:

@@ -162,6 +162,17 @@ rule all:
         "analysis/marker-detection/writeBinom.any.0.all",
         "analysis/marker-detection/plotBinomEffects.any.0.all",
         "analysis/marker-detection/heatmapBinom.any.0.all.pdf",
+        # Trajectory
+        "analysis/trajectory/scvelo.rds",
+        "analysis/trajectory/embedVelocity.PCA.rds",
+        "analysis/trajectory/embedVelocity.TSNE.rds",
+        "analysis/trajectory/embedVelocity.UMAP.rds",
+        "analysis/trajectory/gridVectors.PCA.rds",
+        "analysis/trajectory/gridVectors.TSNE.rds",
+        "analysis/trajectory/gridVectors.UMAP.rds",
+        "analysis/trajectory/plotVeloPCA.pdf",
+        "analysis/trajectory/plotVeloTSNE.pdf",
+        "analysis/trajectory/plotVeloUMAP.pdf",
         # Interactive
         "analysis/interactive/app.R",
         "analysis/interactive/sce.rds"
@@ -178,5 +189,5 @@ include: "rules/doublet-detection.smk"
 include: "rules/stripped-detection.smk"
 include: "rules/cell-cycle.smk"
 include: "rules/marker-detection.smk"
-include: "rules/cell-annotation.smk"
+include: "rules/trajectory.smk"
 include: "rules/interactive.smk"
